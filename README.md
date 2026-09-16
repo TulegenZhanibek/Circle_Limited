@@ -14,3 +14,23 @@
 
 ```text
 dataset_final.jsonl
+```
+
+Получается я подготовил данный потом синтезировал данный с помощью модели и переобразил на единый формат `instruction-response`.
+
+
+## 2. Fine-Tuning
+
+Для обучения использовалась модель:
+
+`mistralai/Mistral-7B-Instruct-v0.2`
+Обучение выполнялось с использованием:
+- Transformers
+- PEFT
+- TRL
+- QLoRA
+- 4-bit NF4 quantization
+
+Так модель Mistral-7B не помещалась в доступную GPU-память при обычном fine-tuning.
+Я использовал QLoRA: базовая модель загружалась в 4-bit NF4, а обучалось на LoRA-адаптера и использовался gradient accumulation.
+
