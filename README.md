@@ -34,4 +34,17 @@ dataset_final.jsonl
 Так модель Mistral-7B не помещалась в доступную GPU-память при обычном fine-tuning.
 Я использовал QLoRA: базовая модель загружалась в 4-bit NF4, а обучалось на LoRA-адаптера и использовался gradient accumulation.
 
-![Training Loss](Picture.png  )  
+![Training Loss](Picture1.png  )  
+
+Как видите Loss снизился во время обучения. В конце небольшое увеличение training loss
+
+## 3. Evaluation
+
+Для сравнения использовались 15 тестовых инструкций и сравнивались:
+
+- Base Mistral-7B;
+- Mistral-7B + LoRA adapter.
+
+Для оценки я использовал ROUGE
+### Результаты
+![Training Loss](Picture2.png  )  
